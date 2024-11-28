@@ -149,7 +149,7 @@ class SectionProject extends StatelessWidget {
                     color: Theme.of(context).colorScheme.primary,
                   ),
                   onPressed: () async {
-                    await launchURL(data.url);
+                    await iconLaunchURL(data.url);
                   },
                 ),
               )
@@ -245,7 +245,7 @@ class SectionProject extends StatelessWidget {
                         color: Theme.of(context).colorScheme.primary,
                       ),
                       onPressed: () async {
-                        await launchURL(data.url);
+                        await iconLaunchURL(data.url);
                       },
                     ),
                   )

@@ -168,14 +168,14 @@ class SectionExperience extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Theme.of(context).colorScheme.primary.withOpacity(0.5)),
+                      color: Theme.of(context).colorScheme.secondary),
                   child: Text(
                     data.label.toUpperCase(),
                     textAlign: TextAlign.center,
                     style: Theme.of(context)
                         .textTheme
                         .titleSmall!
-                        .copyWith(color: Theme.of(context).colorScheme.background),
+                        .copyWith(color: Theme.of(context).colorScheme.onSecondary),
                   ),
                 ),
                 const SizedBox(
