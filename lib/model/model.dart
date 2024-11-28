@@ -58,8 +58,10 @@ class ExperienceModel {
           jobs: 'Flutter Mobile Developer',
           description: '',
           listPoin: [
-            'Commodo irure amet excepteur velit mollit esse sunt velit ad. Aliqua Lorem deserunt sint ullamco nulla exercitation sint est ex mollit. Proident do minim in eiusmod irure incididunt veniam. Ipsum magna et nulla officia mollit ex aute deserunt esse fugiat. Excepteur dolore in occaecat veniam. Lorem nostrud et qui dolore sint dolor ex non enim nulla id. Eu sit laborum duis duis ipsum do pariatur. Aliquip ad consectetur occaecat excepteur.'
-                'Eu ipsum incididunt cillum fugiat eu anim officia pariatur mollit aute. Sunt consectetur ipsum aliqua qui qui nulla ex aliqua qui anim. Cillum eiusmod commodo laboris reprehenderit incididunt. Est proident enim ex quis duis dolor dolore ea esse ullamco id cillum consequat. Ullamco qui et quis reprehenderit veniam velit.',
+            "Managed and developed multiple mobile application projects, successfully launching three apps on the Play Store.",
+            "Led the development of a website using Flutter, integrating cross-platform functionality for enhanced performance.",
+            "Engineered backend integrations with Firebase and microservices built with Node.js, deployed seamlessly on AWS.",
+            "Demonstrated collaboration skills within a cross-functional team environment, ensuring timely project delivery."
           ]),
       ExperienceModel(
           label: 'RS Citra Husada Jember',
@@ -67,8 +69,11 @@ class ExperienceModel {
           jobs: 'Flutter Mobile Developer',
           description: '',
           listPoin: [
-            'Dolor aliquip do est voluptate nulla. Officia irure tempor esse sint non. Et cillum consectetur sint nostrud ipsum excepteur do.',
-            'Commodo irure amet excepteur velit mollit esse sunt velit ad. Aliqua Lorem deserunt sint ullamco nulla exercitation sint est ex mollit. Proident do minim in eiusmod irure incididunt veniam. Ipsum magna et nulla officia mollit ex aute deserunt esse fugiat. Excepteur dolore in occaecat veniam. Lorem nostrud et qui dolore sint dolor ex non enim nulla id. Eu sit laborum duis duis ipsum do pariatur. Aliquip ad consectetur occaecat excepteur.'
+            "Designed and implemented MEDKIT two apps, a mobile e-commerce application aimed at simplifying medical appointments and consultations.",
+            "Developed features for customers to book appointments, consult with doctors, and order hospital services online.",
+            "Built an admin panel to manage products, services, and user accounts.",
+            "Used Flutter for mobile development and Firebase for database management.",
+            "Provided detailed project documentation and a video demonstration for stakeholders."
           ]),
     ];
   }
@@ -104,7 +109,6 @@ class ProjectModel {
           listPoin: [
             "Propertiku is an application made to make it easier to apply for mortgages. You can apply for a mortgage purchase by entering your personal data and files requested for submission through this application, then you can monitor the application process until you know the application has been accepted or rejected without having to contact the bank manually.",
             "Skills : Flutter, GetX , RestAPI, Firebase",
-          
           ]),
       ProjectModel(
           label: 'PT Andalan Solusi Cemerlang',
@@ -121,7 +125,9 @@ class ProjectModel {
           app: 'Medkit Admin',
           url: 'https://github.com/AriaDesta2083/admin_medkit',
           listPoin: [
-            'Dolor aliquip do est voluptate nulla. Officia irure tempor esse sint non. Et cillum consectetur sint nostrud ipsum excepteur do.',
+            'MEDKIT is a mobile-based application designed to facilitate the buying and selling of products and services offered by our partners. This process operates on an E-Commerce concept, allowing customers to browse and place orders for products or services through the available features within the app.',
+            'The system aims to save time and costs in reaching individuals, attract more new customers, simplify consultations with doctors, make it easier to find treatment options, and streamline the process of booking appointments or registering for medical services.',
+            "Skills : Flutter, GetX , RestAPI, Firebase",
           ]),
       ProjectModel(
           label: 'RS Citra Husada Jember',
@@ -129,7 +135,8 @@ class ProjectModel {
           app: 'Medkit',
           url: 'https://github.com/AriaDesta2083/medkit_app',
           listPoin: [
-            'Consequat ex anim do pariatur. Cillum sint exercitation quis cupidatat. Nisi non ad commodo consequat. Ipsum proident esse non culpa aliqua aliquip eiusmod exercitation quis dolor minim magna. Elit elit duis eu.'
+            'MEDKIT ADMIN is a platform designed to efficiently manage products, services, and other operational features, providing seamless administration for partners and ensuring smooth integration with the MEDKIT mobile application.',
+            "Skills : Flutter, GetX , RestAPI, Firebase",
           ]),
     ];
   }

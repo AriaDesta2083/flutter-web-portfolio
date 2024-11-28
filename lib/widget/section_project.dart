@@ -183,10 +183,13 @@ class SectionProject extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
                 'images/${data.image.first}',
-                height: getW * 0.35,
+                width: getW * 0.35,
                 opacity: const AlwaysStoppedAnimation(0.9),
                 fit: BoxFit.fitHeight,
               )),
+          const SizedBox(
+            height: 30,
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(top: 10, left: 12),

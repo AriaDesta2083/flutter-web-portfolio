@@ -107,18 +107,27 @@ class _SectionMyLatestAppState extends State<SectionMyLatestApp> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10), color: Theme.of(context).colorScheme.secondary),
-                  child: Text(
-                    'Cuan App',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall!
-                        .copyWith(color: Theme.of(context).colorScheme.onSecondary),
-                  ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10), color: Theme.of(context).colorScheme.secondary),
+                      child: Text(
+                        'CUAN',
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleSmall!
+                            .copyWith(color: Theme.of(context).colorScheme.onSecondary),
+                      ),
+                    ),
+                    const Text(
+                      'Oct 2024 - Present',
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 10,
@@ -216,18 +225,30 @@ class _SectionMyLatestAppState extends State<SectionMyLatestApp> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10), color: Theme.of(context).colorScheme.secondary),
-                      child: Text(
-                        'Cuan App',
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleSmall!
-                            .copyWith(color: Theme.of(context).colorScheme.onSecondary),
-                      ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10), color: Theme.of(context).colorScheme.secondary),
+                          child: Text(
+                            'CUAN',
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .copyWith(color: Theme.of(context).colorScheme.onSecondary),
+                          ),
+                        ),
+                        const Text(
+                          'Oct 2024 - Present',
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
                     ),
                     const SizedBox(
                       height: 10,
@@ -246,7 +267,7 @@ class _SectionMyLatestAppState extends State<SectionMyLatestApp> {
                         featureText('Backe-end : Laravel'),
                       ],
                     ),
-                    Text('Skills:', style: Theme.of(context).textTheme.bodyLarge),
+                    Text('Skills:', style: Theme.of(context).textTheme.bodyMedium),
                   ],
                 ),
               ),
