@@ -1,7 +1,6 @@
 import 'package:ariadesta/shared/shared_value.dart';
 import 'package:ariadesta/widget/responsive_layout.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class SectionAbout extends StatelessWidget {
   const SectionAbout({super.key});

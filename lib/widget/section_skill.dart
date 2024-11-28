@@ -1,7 +1,6 @@
 import 'package:ariadesta/model/model.dart';
 import 'package:ariadesta/widget/responsive_layout.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class SectionSkill extends StatefulWidget {
   const SectionSkill({super.key});
@@ -14,6 +13,8 @@ class _SectionSkillState extends State<SectionSkill> {
   final ScrollController _scrollControllerSkill = ScrollController();
   final List<SkillModel> listSkill = SkillModel.getListModel();
 
+  bool _isMaxScroll = false;
+
   @override
   void initState() {
     super.initState();
@@ -24,14 +25,18 @@ class _SectionSkillState extends State<SectionSkill> {
     Future.delayed(const Duration(seconds: 1), () {
       if (_scrollControllerSkill.hasClients) {
         double maxScrollExtent = _scrollControllerSkill.position.maxScrollExtent;
+        double minScrollExtent = _scrollControllerSkill.position.minScrollExtent;
+        double targetScrollPosition = _isMaxScroll ? minScrollExtent : maxScrollExtent;
+
         _scrollControllerSkill
             .animateTo(
-          maxScrollExtent,
+          targetScrollPosition,
           duration: const Duration(seconds: 35),
           curve: Curves.linear,
         )
             .then((_) {
-          _scrollControllerSkill.jumpTo(0);
+          // Ubah arah scroll setelah mencapai ujung
+          _isMaxScroll = !_isMaxScroll;
           _startAutoScroll();
         });
       }
@@ -74,8 +79,8 @@ class _SectionSkillState extends State<SectionSkill> {
             child: SingleChildScrollView(
               controller: _scrollControllerSkill,
               physics: const NeverScrollableScrollPhysics(),
-              reverse: true,
               scrollDirection: Axis.horizontal,
+              reverse: true,
               child: Row(children: listSkill.map((data) => iconSkill(icUrl: data.imgUrl, label: data.label)).toList()),
             ),
           ),

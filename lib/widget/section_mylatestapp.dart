@@ -1,5 +1,8 @@
 import 'dart:async';
+import 'package:ariadesta/shared/shared_method.dart';
+import 'package:ariadesta/shared/shared_value.dart';
 import 'package:ariadesta/widget/responsive_layout.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class SectionMyLatestApp extends StatefulWidget {
@@ -11,6 +14,7 @@ class SectionMyLatestApp extends StatefulWidget {
 
 class _SectionMyLatestAppState extends State<SectionMyLatestApp> {
   final ScrollController _scrollControllerMyLatestApp = ScrollController();
+  bool _isMaxScroll = true;
 
   @override
   void initState() {
@@ -19,17 +23,20 @@ class _SectionMyLatestAppState extends State<SectionMyLatestApp> {
   }
 
   void _startAutoScroll() {
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1), () {
       if (_scrollControllerMyLatestApp.hasClients) {
         double maxScrollExtent = _scrollControllerMyLatestApp.position.maxScrollExtent;
+        double minScrollExtent = _scrollControllerMyLatestApp.position.minScrollExtent;
+        double targetScrollPosition = _isMaxScroll ? minScrollExtent : maxScrollExtent;
+
         _scrollControllerMyLatestApp
             .animateTo(
-          maxScrollExtent,
-          duration: const Duration(seconds: 100),
+          targetScrollPosition,
+          duration: const Duration(seconds: 80),
           curve: Curves.linear,
         )
             .then((_) {
-          _scrollControllerMyLatestApp.jumpTo(0);
+          _isMaxScroll = !_isMaxScroll;
           _startAutoScroll();
         });
       }
@@ -89,11 +96,11 @@ class _SectionMyLatestAppState extends State<SectionMyLatestApp> {
                 controller: _scrollControllerMyLatestApp,
                 child: Row(
                     children: List.generate(
-                        60,
+                        30,
                         (index) => Padding(
                               padding: const EdgeInsets.all(10),
                               child: Image.asset(
-                                'img_cuan/img_cuan${(index < 30) ? index + 1 : index - 29}.png',
+                                'img_cuan/img_cuan${index + 1}.png',
                                 height: getH * 0.4,
                                 fit: BoxFit.fitHeight,
                               ),
@@ -102,56 +109,8 @@ class _SectionMyLatestAppState extends State<SectionMyLatestApp> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10), color: Theme.of(context).colorScheme.secondary),
-                      child: Text(
-                        'CUAN',
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleSmall!
-                            .copyWith(color: Theme.of(context).colorScheme.onSecondary),
-                      ),
-                    ),
-                    const Text(
-                      'Oct 2024 - Present',
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  cuanDesc,
-                  textAlign: TextAlign.justify,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Text('Source Code:', style: Theme.of(context).textTheme.bodyMedium),
-                Column(
-                  children: [
-                    featureText('Front-End : Flutter'),
-                    featureText('Backe-end : Laravel'),
-                  ],
-                ),
-                Text('Skills:', style: Theme.of(context).textTheme.bodyLarge),
-              ],
-            ),
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+            child: descCuanItems(),
           ),
         ],
       ),
@@ -206,11 +165,11 @@ class _SectionMyLatestAppState extends State<SectionMyLatestApp> {
                     controller: _scrollControllerMyLatestApp,
                     child: Row(
                         children: List.generate(
-                            60,
+                            30,
                             (index) => Padding(
                                   padding: const EdgeInsets.all(10),
                                   child: Image.asset(
-                                    'img_cuan/img_cuan${(index < 30) ? index + 1 : index - 29}.png',
+                                    'img_cuan/img_cuan${index + 1}.png',
                                     height: getW * 0.3,
                                     fit: BoxFit.fitWidth,
                                   ),
@@ -218,59 +177,7 @@ class _SectionMyLatestAppState extends State<SectionMyLatestApp> {
                   ),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.all(10),
-                width: getW * 0.4,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10), color: Theme.of(context).colorScheme.secondary),
-                          child: Text(
-                            'CUAN',
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleSmall!
-                                .copyWith(color: Theme.of(context).colorScheme.onSecondary),
-                          ),
-                        ),
-                        const Text(
-                          'Oct 2024 - Present',
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(cuanDesc),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text('Source Code:', style: Theme.of(context).textTheme.bodyMedium),
-                    Column(
-                      children: [
-                        featureText('Front-End : Flutter'),
-                        featureText('Backe-end : Laravel'),
-                      ],
-                    ),
-                    Text('Skills:', style: Theme.of(context).textTheme.bodyMedium),
-                  ],
-                ),
-              ),
+              Container(padding: const EdgeInsets.all(10), width: getW * 0.4, child: descCuanItems()),
             ],
           ),
         ],
@@ -278,20 +185,113 @@ class _SectionMyLatestAppState extends State<SectionMyLatestApp> {
     );
   }
 
-  Widget featureText(String text) {
+  Widget descCuanItems() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10), color: Theme.of(context).colorScheme.secondary),
+              child: Text(
+                'CUAN',
+                textAlign: TextAlign.center,
+                style:
+                    Theme.of(context).textTheme.titleSmall!.copyWith(color: Theme.of(context).colorScheme.onSecondary),
+              ),
+            ),
+            const Text(
+              'Oct 2024 ~ Present',
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Text(cuanDesc),
+        const SizedBox(
+          height: 10,
+        ),
+        Text(cuanTechDesc),
+        const SizedBox(
+          height: 10,
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Text('Technology used :',
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium!
+                .copyWith(color: Theme.of(context).colorScheme.secondary, fontWeight: FontWeight.bold)),
+        const SizedBox(
+          height: 10,
+        ),
+        SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: Wrap(
+            direction: Axis.horizontal,
+            runSpacing: 10,
+            spacing: 10,
+            children: [
+              featureText('Frontend', 'Flutter', cuanFlutterGithub),
+              featureText('Backend', 'Laravel', cuanLaravelGithub),
+              featureText('API Documentation', 'Postman Collection', cuanPostman),
+              featureText('Database', 'MySql', 'https://www.mysql.com/'),
+              featureText('Payment Gateway', 'Midtrans', 'https://midtrans.com/'),
+              featureText('Video Demo Apps', 'ariadestap.dev', instagram)
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+      ],
+    );
+  }
+
+  Widget featureText(String label, String value, String linkUrl) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Text(
           '•',
           style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Theme.of(context).colorScheme.primary),
         ),
-        const SizedBox(width: 8),
-        Expanded(
-          child: Text(
-            text,
-            style: Theme.of(context).textTheme.bodyMedium,
+        const SizedBox(width: 3),
+        Text.rich(
+          TextSpan(
+            children: <TextSpan>[
+              TextSpan(
+                text: label,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              const TextSpan(
+                text: ' : ',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              TextSpan(
+                text: value,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.w500),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () async {
+                    await iconLaunchURL(linkUrl);
+                  },
+              ),
+            ],
           ),
-        ),
+        )
       ],
     );
   }
@@ -315,6 +315,4 @@ class _SectionMyLatestAppState extends State<SectionMyLatestApp> {
     super.dispose();
   }
 
-  String cuanDesc =
-      """Cuan is a digital wallet application that offers various financial services, including electronic payments, money transfers, mobile top-ups, bill payments, and QRIS transactions for offline needs. Designed to simplify financial activities, Cuan ensures secure transactions through advanced encryption technology.""";
 }

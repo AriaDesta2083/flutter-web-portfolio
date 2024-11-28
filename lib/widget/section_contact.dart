@@ -1,10 +1,7 @@
 import 'package:ariadesta/shared/shared_method.dart';
 import 'package:ariadesta/shared/shared_value.dart';
 import 'package:ariadesta/widget/responsive_layout.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SectionContact extends StatefulWidget {

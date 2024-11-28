@@ -1,6 +1,5 @@
 import 'package:ariadesta/model/model.dart';
 import 'package:ariadesta/widget/responsive_layout.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SectionExperience extends StatelessWidget {
