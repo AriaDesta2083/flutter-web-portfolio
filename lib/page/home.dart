@@ -19,6 +19,7 @@ final sectionKeyHero = GlobalKey();
 final sectionKeyAbout = GlobalKey();
 final sectionKeyLatest = GlobalKey();
 final sectionKeyExperience = GlobalKey();
+final sectionKeyProject = GlobalKey();
 final sectionKeyContact = GlobalKey();
 
 final Map<String, GlobalKey> sectionKeys = {
@@ -26,6 +27,7 @@ final Map<String, GlobalKey> sectionKeys = {
   'about': sectionKeyAbout,
   'latest': sectionKeyLatest,
   'experience': sectionKeyExperience,
+  'project': sectionKeyProject,
   'contact': sectionKeyContact,
 };
 
@@ -65,13 +67,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 key: sectionKeyLatest,
               ),
               linearSolid(50),
-              Column(
+              SectionExperience(
                 key: sectionKeyExperience,
-                children: [
-                  const SectionExperience(),
-                  linearSolid(50),
-                  const SectionProject(),
-                ],
+              ),
+              linearSolid(50),
+              SectionProject(
+                key: sectionKeyProject,
               ),
               linearSolid(50),
               SectionContact(

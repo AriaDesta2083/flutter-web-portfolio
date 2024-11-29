@@ -1,5 +1,6 @@
 import 'package:ariadesta/page/home.dart';
-import 'package:ariadesta/shared/theme.dart';
+import 'package:ariadesta/services/download_service.dart';
+import 'package:ariadesta/services/theme_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,13 +11,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => ThemeProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => DownloadProvider()),
+      ],
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child) {
           return MaterialApp(
             title: 'Aria Desta',
-            debugShowCheckedModeBanner: false ,
+            debugShowCheckedModeBanner: false,
             theme: ThemeData.light(useMaterial3: true),
             darkTheme: ThemeData.dark(useMaterial3: true),
             themeMode: themeProvider.themeMode,

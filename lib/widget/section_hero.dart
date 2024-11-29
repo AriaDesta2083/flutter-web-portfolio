@@ -1,6 +1,8 @@
+import 'package:ariadesta/services/download_service.dart';
 import 'package:ariadesta/shared/shared_value.dart';
 import 'package:ariadesta/widget/responsive_layout.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SectionHero extends StatelessWidget {
   const SectionHero({super.key});
@@ -34,11 +36,12 @@ class SectionHero extends StatelessWidget {
                 children: [
                   Positioned(
                     left: 40,
-                    top: 70,  
-                    child: FilledButton(
-                      onPressed: () {},
-                      child: const Text('Download CV'),
-                    ),
+                    top: 70,
+                    child: Consumer<DownloadProvider>(builder: (context, download, child) {
+                      return FilledButton(
+                          onPressed: download.isLoading ? null : () => download.downloadCV(context),
+                          child: download.isLoading ? const Text('Loading ... ') : const Text('Download CV'));
+                    }),
                   ),
                   Align(
                       alignment: Alignment.bottomRight,

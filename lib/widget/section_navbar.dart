@@ -1,4 +1,5 @@
-import 'package:ariadesta/shared/theme.dart';
+import 'package:ariadesta/services/download_service.dart';
+import 'package:ariadesta/services/theme_service.dart';
 import 'package:ariadesta/widget/responsive_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -44,6 +45,7 @@ PreferredSizeWidget customAppBar(BuildContext context, {required Function(String
             navButton("About", "about"),
             navButton("Latest", "latest"),
             navButton("Experience", "experience"),
+            navButton("Project", "project"),
             navButton("Contact", "contact"),
             const SizedBox(
               width: 10,
@@ -59,11 +61,11 @@ PreferredSizeWidget customAppBar(BuildContext context, {required Function(String
             const SizedBox(
               width: 10,
             ),
-            FilledButton(
-                onPressed: () {
-                  themeProvider.toggleTheme();
-                },
-                child: const Text('Download CV')),
+            Consumer<DownloadProvider>(builder: (context, download, child) {
+              return FilledButton(
+                  onPressed: download.isLoading ? null : () => download.downloadCV(context),
+                  child: download.isLoading ? const Text('Loading ... ') : const Text('Download CV'));
+            }),
             const SizedBox(
               width: 30,
             ),
