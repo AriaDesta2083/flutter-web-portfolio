@@ -19,7 +19,7 @@ class SectionAbout extends StatelessWidget {
               'About Me',
               style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Theme.of(context).colorScheme.primary),
             ),
-            Container(  
+            Container(
                 padding: EdgeInsets.all(getW * 0.03),
                 margin: EdgeInsets.symmetric(vertical: getH * 0.02, horizontal: getW * 0.02),
                 decoration: BoxDecoration(
@@ -36,7 +36,6 @@ class SectionAbout extends StatelessWidget {
                 ),
                 child: const Text(
                   aboutMe,
-                  textAlign: TextAlign.justify,
                 ))
           ])
         : Column(
@@ -69,26 +68,27 @@ class SectionAbout extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                        height: getH * 0.6,
-                        width: getH * 0.4,
-                        alignment: Alignment.bottomCenter,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'images/img_profile.png',
-                            ),
-                            alignment: Alignment.center,
-                            fit: BoxFit.fitWidth,
-                            filterQuality: FilterQuality.high,
-                          ),
-                        )),
+                      height: getH * 0.3,
+                      width: getH * 0.3,
+                      margin: const EdgeInsets.all(50),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.primary,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Image.asset(
+                        'assets/logo/logo.png',
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                    ),
                     const Expanded(
                       child: SizedBox(
                           child: Text(
                         aboutMe,
-                        textAlign: TextAlign.justify,
                       )),
+                    ),
+                    const SizedBox(
+                      width: 50,
                     )
                   ],
                 ),

@@ -1,9 +1,5 @@
-// file: providers/download_provider.dart
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:share_plus/share_plus.dart';
-import 'dart:io';
+import 'package:url_launcher/url_launcher.dart';
 
 class DownloadProvider extends ChangeNotifier {
   bool _isLoading = false;
@@ -14,32 +10,26 @@ class DownloadProvider extends ChangeNotifier {
       _isLoading = true;
       notifyListeners();
 
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 1));
+      // URL relative to assets
+      const String fileUrl = 'assets/assets/docs/cv_ariadestaprabu.pdf';
 
-      // Load PDF file from assets
-      final ByteData data = await rootBundle.load('docs/cv_ariadestap.pdf');
-      final bytes = data.buffer.asUint8List();
-
-      // Get temporary directory
-      final tempDir = await getTemporaryDirectory();
-      final tempPath = tempDir.path;
-      final filePath = '$tempPath/cv_ariadestap.pdf';
-
-      // Write to temporary file
-      final file = File(filePath);
-      await file.writeAsBytes(bytes);
-
-      // Share the file
-      await Share.shareXFiles(
-        [XFile(filePath)],
-        subject: 'My CV',
-      );
+      // Launch URL to download the file
+      final Uri uri = Uri.base.resolve(fileUrl);
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri);
+      } else {
+        throw Exception('Could not launch $uri');
+      }
 
       _isLoading = false;
       notifyListeners();
     } catch (e) {
       _isLoading = false;
       notifyListeners();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to download file: $e')),
+      );
     }
   }
 }

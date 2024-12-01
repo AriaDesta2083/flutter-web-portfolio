@@ -17,9 +17,28 @@ PreferredSizeWidget customAppBar(BuildContext context, {required Function(String
 
   return ResposiveLayout.isSmallScreen(context)
       ? AppBar(
-          title: TextButton(
-              onPressed: () => onTapToSection('hero'),
-              child: const Text("ADP", style: TextStyle(fontWeight: FontWeight.bold))),
+          leading: ResposiveLayout.isSmallScreen(context)
+              ? Builder(
+                  builder: (context) {
+                    return IconButton(
+                      icon: const Icon(Icons.menu),
+                      onPressed: () {
+                        Scaffold.of(context).openDrawer();
+                      },
+                      tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+                    );
+                  },
+                )
+              : null,
+          title: ListTile(
+            leading: ImageIcon(
+              const AssetImage('assets/logo/logo.png'),
+              color: Theme.of(context).colorScheme.primary,
+              size: 30,
+            ),
+            onTap: () => onTapToSection('hero'),
+            title: const Text("ADP", style: TextStyle(fontWeight: FontWeight.bold)),
+          ),
           elevation: 4,
           centerTitle: true,
           actions: [
@@ -27,8 +46,9 @@ PreferredSizeWidget customAppBar(BuildContext context, {required Function(String
               onPressed: () {
                 themeProvider.toggleTheme();
               },
-              icon: ImageIcon(
-                  AssetImage((themeProvider.themeMode == ThemeMode.light) ? 'icons/ic_sun.png' : 'icons/ic_moon.png')),
+              icon: ImageIcon(AssetImage((themeProvider.themeMode == ThemeMode.light)
+                  ? 'assets/icons/ic_sun.png'
+                  : 'assets/icons/ic_moon.png')),
               iconSize: 25,
             ),
             const SizedBox(
@@ -37,9 +57,16 @@ PreferredSizeWidget customAppBar(BuildContext context, {required Function(String
           ],
         )
       : AppBar(
-          title: TextButton(
-              onPressed: () => onTapToSection('hero'),
-              child: const Text("ADP", style: TextStyle(fontWeight: FontWeight.bold))),
+          leading: IconButton(
+              icon: ImageIcon(
+                const AssetImage(
+                  'assets/logo/logo.png',
+                ),
+                size: 40,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+              onPressed: () => onTapToSection('hero')),
+          title: const Text("ADP", style: TextStyle(fontWeight: FontWeight.bold)),
           elevation: 4,
           actions: [
             navButton("About", "about"),
@@ -54,8 +81,9 @@ PreferredSizeWidget customAppBar(BuildContext context, {required Function(String
               onPressed: () {
                 themeProvider.toggleTheme();
               },
-              icon: ImageIcon(
-                  AssetImage((themeProvider.themeMode == ThemeMode.light) ? 'icons/ic_sun.png' : 'icons/ic_moon.png')),
+              icon: ImageIcon(AssetImage((themeProvider.themeMode == ThemeMode.light)
+                  ? 'assets/icons/ic_sun.png'
+                  : 'assets/icons/ic_moon.png')),
               iconSize: 25,
             ),
             const SizedBox(
@@ -63,7 +91,11 @@ PreferredSizeWidget customAppBar(BuildContext context, {required Function(String
             ),
             Consumer<DownloadProvider>(builder: (context, download, child) {
               return FilledButton(
-                  onPressed: download.isLoading ? null : () => download.downloadCV(context),
+                  onPressed: download.isLoading
+                      ? null
+                      : () async {
+                          await download.downloadCV(context);
+                        },
                   child: download.isLoading ? const Text('Loading ... ') : const Text('Download CV'));
             }),
             const SizedBox(

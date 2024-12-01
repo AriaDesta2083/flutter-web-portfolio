@@ -65,24 +65,12 @@ class _SectionSkillState extends State<SectionSkill> {
         Container(
           height: getH * 0.15,
           margin: const EdgeInsets.symmetric(vertical: 10),
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: ResposiveLayout.isSmallScreen(context) ? 10 : 100),
-          child: ShaderMask(
-            shaderCallback: (Rect bounds) {
-              return const LinearGradient(
-                colors: [Colors.white, Colors.transparent, Colors.transparent, Colors.white],
-                stops: [0.0, 0.1, 0.9, 1.0],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-              ).createShader(bounds);
-            },
-            blendMode: BlendMode.dstOut,
-            child: SingleChildScrollView(
-              controller: _scrollControllerSkill,
-              physics: const NeverScrollableScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              reverse: true,
-              child: Row(children: listSkill.map((data) => iconSkill(icUrl: data.imgUrl, label: data.label)).toList()),
-            ),
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: ResposiveLayout.isSmallScreen(context) ? 20 : 100),
+          child: SingleChildScrollView(
+            controller: _scrollControllerSkill,
+            scrollDirection: Axis.horizontal,
+            reverse: true,
+            child: Row(children: listSkill.map((data) => iconSkill(icUrl: data.imgUrl, label: data.label)).toList()),
           ),
         ),
         SizedBox(
@@ -100,7 +88,7 @@ class _SectionSkillState extends State<SectionSkill> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Image.asset(
-            'icons/$icUrl',
+            'assets/icons/$icUrl',
             width: MediaQuery.of(context).size.height * (ResposiveLayout.isSmallScreen(context) ? 0.05 : 0.07),
             fit: BoxFit.fitWidth,
             filterQuality: FilterQuality.high,

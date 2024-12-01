@@ -39,14 +39,16 @@ class SectionHero extends StatelessWidget {
                     top: 70,
                     child: Consumer<DownloadProvider>(builder: (context, download, child) {
                       return FilledButton(
-                          onPressed: download.isLoading ? null : () => download.downloadCV(context),
+                          onPressed: download.isLoading ? null : () async {
+                            await download.downloadCV(context);
+                          } ,
                           child: download.isLoading ? const Text('Loading ... ') : const Text('Download CV'));
                     }),
                   ),
                   Align(
                       alignment: Alignment.bottomRight,
                       child: Image.asset(
-                        'images/img_profile.png',
+                        'assets/images/img_profile.png',
                         width: getW * 0.4,
                         height: getH * 0.5,
                         alignment: Alignment.topLeft,
@@ -163,7 +165,7 @@ class SectionHero extends StatelessWidget {
                     decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
-                          'images/img_profile.png',
+                          'assets/images/img_profile.png',
                         ),
                         alignment: Alignment.center,
                         fit: BoxFit.fitWidth,

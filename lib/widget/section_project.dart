@@ -87,7 +87,7 @@ class SectionProject extends StatelessWidget {
           ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
-                'images/${data.image.first}',
+                'assets/images/${data.image.first}',
                 opacity: const AlwaysStoppedAnimation(0.9),
                 fit: BoxFit.fitWidth,
               )),
@@ -182,7 +182,7 @@ class SectionProject extends StatelessWidget {
           ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
-                'images/${data.image.first}',
+                'assets/images/${data.image.first}',
                 width: getW * 0.35,
                 opacity: const AlwaysStoppedAnimation(0.9),
                 fit: BoxFit.fitHeight,

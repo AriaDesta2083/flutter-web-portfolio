@@ -70,42 +70,25 @@ class _SectionMyLatestAppState extends State<SectionMyLatestApp> {
             width: getW * 0.7,
             decoration: const BoxDecoration(
                 image: DecorationImage(
-              image: AssetImage('images/img_bgapp.png'),
+              image: AssetImage('assets/images/img_bgapp.png'),
               alignment: Alignment.bottomCenter,
               fit: BoxFit.fitHeight,
               filterQuality: FilterQuality.high,
             )),
-            child: ShaderMask(
-              shaderCallback: (Rect bounds) {
-                return LinearGradient(
-                  colors: [
-                    Theme.of(context).colorScheme.shadow,
-                    Colors.transparent,
-                    Colors.transparent,
-                    Theme.of(context).colorScheme.shadow
-                  ],
-                  stops: const [0.0, 0.1, 0.9, 1.0],
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
-                ).createShader(bounds);
-              },
-              blendMode: BlendMode.dstOut,
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                physics: const NeverScrollableScrollPhysics(),
-                controller: _scrollControllerMyLatestApp,
-                child: Row(
-                    children: List.generate(
-                        30,
-                        (index) => Padding(
-                              padding: const EdgeInsets.all(10),
-                              child: Image.asset(
-                                'img_cuan/img_cuan${index + 1}.png',
-                                height: getH * 0.4,
-                                fit: BoxFit.fitHeight,
-                              ),
-                            ))),
-              ),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              controller: _scrollControllerMyLatestApp,
+              child: Row(
+                  children: List.generate(
+                      30,
+                      (index) => Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Image.asset(
+                              'assets/img_cuan/img_cuan${index + 1}.png',
+                              height: getH * 0.4,
+                              fit: BoxFit.fitHeight,
+                            ),
+                          ))),
             ),
           ),
           Container(
@@ -140,7 +123,7 @@ class _SectionMyLatestAppState extends State<SectionMyLatestApp> {
                 height: getH * 0.7,
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                  image: AssetImage('images/img_bgapp.png'),
+                  image: AssetImage('assets/images/img_bgapp.png'),
                   fit: BoxFit.contain,
                   filterQuality: FilterQuality.high,
                 )),
@@ -161,7 +144,6 @@ class _SectionMyLatestAppState extends State<SectionMyLatestApp> {
                   blendMode: BlendMode.dstOut,
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    physics: const NeverScrollableScrollPhysics(),
                     controller: _scrollControllerMyLatestApp,
                     child: Row(
                         children: List.generate(
@@ -169,7 +151,7 @@ class _SectionMyLatestAppState extends State<SectionMyLatestApp> {
                             (index) => Padding(
                                   padding: const EdgeInsets.all(10),
                                   child: Image.asset(
-                                    'img_cuan/img_cuan${index + 1}.png',
+                                    'assets/img_cuan/img_cuan${index + 1}.png',
                                     height: getW * 0.3,
                                     fit: BoxFit.fitWidth,
                                   ),

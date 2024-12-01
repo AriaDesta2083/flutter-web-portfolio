@@ -222,7 +222,7 @@ class _SectionContactState extends State<SectionContact> {
       height: getH,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(
             "Contact Us",
@@ -244,11 +244,11 @@ class _SectionContactState extends State<SectionContact> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              iconUrl(github, 'icons/ic_github.png'),
-              iconUrl(linkedin, 'icons/ic_linkedin.png'),
-              iconUrl(instagram, 'icons/ic_instagram.png'),
-              iconUrl(whatsapp, 'icons/ic_whatsapp.png'),
-              iconUrl(telegram, 'icons/ic_telegram.png'),
+              iconUrl(github, 'assets/icons/ic_github.png'),
+              iconUrl(linkedin, 'assets/icons/ic_linkedin.png'),
+              iconUrl(instagram, 'assets/icons/ic_instagram.png'),
+              iconUrl(whatsapp, 'assets/icons/ic_whatsapp.png'),
+              iconUrl(telegram, 'assets/icons/ic_telegram.png'),
               const SizedBox(
                 height: 10,
               )
