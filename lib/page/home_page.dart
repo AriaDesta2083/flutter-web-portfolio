@@ -5,6 +5,7 @@ import 'package:ariadesta/widget/section_about.dart';
 import 'package:ariadesta/widget/section_contact.dart';
 import 'package:ariadesta/widget/section_drawer.dart';
 import 'package:ariadesta/widget/section_experience.dart';
+import 'package:ariadesta/widget/section_footer.dart';
 import 'package:ariadesta/widget/section_hero.dart';
 import 'package:ariadesta/widget/section_mylatestapp.dart';
 import 'package:ariadesta/widget/section_navbar.dart';
@@ -128,6 +129,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     key: sectionKeyContact,
                   ),
                   linearSolid(50),
+                  const SectionFooter(
+                  )
                 ],
               ),
             ),

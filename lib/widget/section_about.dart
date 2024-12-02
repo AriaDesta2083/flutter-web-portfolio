@@ -68,17 +68,18 @@ class SectionAbout extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      height: getH * 0.3,
-                      width: getH * 0.3,
-                      margin: const EdgeInsets.all(50),
+                      width: getW * 0.2,
+                      padding: EdgeInsets.all(getW*0.02),
+                      margin: EdgeInsets.all(getH*0.1),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.primary,
+                        color: Theme.of(context).colorScheme.secondary,
                         shape: BoxShape.circle,
                       ),
                       child: Image.asset(
                         'assets/logo/logo.png',
-                        color: Theme.of(context).colorScheme.onPrimary,
+                        fit: BoxFit.fitWidth,
+                        color: Theme.of(context).colorScheme.onSecondary,
                       ),
                     ),
                     const Expanded(

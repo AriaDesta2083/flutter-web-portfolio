@@ -228,7 +228,7 @@ class _SectionContactState extends State<SectionContact> {
             "Contact Us",
             style: Theme.of(context)
                 .textTheme
-                .titleLarge!
+                .titleMedium!
                 .copyWith(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold),
           ),
           Text(
@@ -244,7 +244,7 @@ class _SectionContactState extends State<SectionContact> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              iconUrl(github, 'assets/icons/ic_github.png'),
+              iconUrl(github, 'assets/icons/ic_gith.png'),
               iconUrl(linkedin, 'assets/icons/ic_linkedin.png'),
               iconUrl(instagram, 'assets/icons/ic_instagram.png'),
               iconUrl(whatsapp, 'assets/icons/ic_whatsapp.png'),
