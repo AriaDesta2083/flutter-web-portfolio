@@ -8,19 +8,26 @@ class SectionFooter extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1),
-      padding: const EdgeInsets.all(12),
-      color: Theme.of(context).appBarTheme.backgroundColor,
-      child: Column(
-        children: [
-          Text('© ${DateTime.now().year}. All rights reserved.'),
-          const SizedBox(
-            height: 12,
-          ),
-          Text(
-            'Crafted with 🔥 and Flutter',
-            style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).hintColor),
-          )
-        ],
+      child: Card(
+        margin: EdgeInsets.zero,
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 8,
+            ),
+            Text('© ${DateTime.now().year}. All rights reserved.',),
+            const SizedBox(
+              height: 8,
+            ),
+            Text(
+              'Crafted with 🔥 and Flutter',
+              style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).hintColor),
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+          ],
+        ),
       ),
     );
   }

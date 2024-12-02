@@ -27,9 +27,7 @@ class DownloadProvider extends ChangeNotifier {
     } catch (e) {
       _isLoading = false;
       notifyListeners();
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to download file: $e')),
-      );
+      debugPrint('$e');
     }
   }
 }

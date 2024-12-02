@@ -51,28 +51,12 @@ class _SectionContactState extends State<SectionContact> {
           setState(() {
             _isSuccess = true;
           });
-          // Show success message
-          if (context.mounted) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: const Text('successfully'),
-                backgroundColor: Theme.of(context).colorScheme.primary,
-              ),
-            );
-          }
+
         } else {
           throw 'Could not launch email client';
         }
       } catch (e) {
-        // Show error message
-        if (context.mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(e.toString()),
-              backgroundColor: Theme.of(context).colorScheme.error,
-            ),
-          );
-        }
+        debugPrint('$e');
       }
     }
   }
