@@ -1,4 +1,4 @@
-const String email = 'aria.destaprabu@gmail.com';
+const String email = 'ariadestaprabu@gmail.com';
 const String address = 'Bondowoso, East Java, Indonesia';
 const String phone = '+62 812-2512-1659';
 const String instagram = 'https://www.instagram.com/ariadestap.dev/';

@@ -99,7 +99,7 @@ class ProjectModel {
           listPoin: [
             "Absensiku is an application that is suitable for companies in managing employee attendance. This application is designed in such a way as to make it easier to check all employee activities with several features including.",
             " For employees : Checking attendance with valid location",
-            "Skills : Flutter, GetX , RestAPI, Firebase",
+            "Skills : Flutter, GetX , RestAPI, Firebase , Bloc",
           ]),
       ProjectModel(
           label: 'PT Andalan Soulusi Cemerlang',
@@ -108,7 +108,7 @@ class ProjectModel {
           url: 'https://play.google.com/store/apps/details?id=com.asc.pr0pertiku',
           listPoin: [
             "Propertiku is an application made to make it easier to apply for mortgages. You can apply for a mortgage purchase by entering your personal data and files requested for submission through this application, then you can monitor the application process until you know the application has been accepted or rejected without having to contact the bank manually.",
-            "Skills : Flutter, GetX , RestAPI, Firebase",
+            "Skills : Flutter, GetX , RestAPI, Firebase , Bloc",
           ]),
       ProjectModel(
           label: 'PT Andalan Solusi Cemerlang',
@@ -117,7 +117,7 @@ class ProjectModel {
           url: 'https://play.google.com/store/apps/details?id=com.asc.propertiku',
           listPoin: [
             "Propertiku Bank is a version of the Propertiku application for banks that aims to make it easier to check, evaluate and process mortgage applications. With this application, the Bank can more easily receive and revise data, provide assessments in the selection process, and send proposals to users",
-            "Skills : Flutter, GetX , RestAPI, Firebase",
+            "Skills : Flutter, GetX , RestAPI, Firebase , Bloc",
           ]),
       ProjectModel(
           label: 'RS Citra Husada Jember',

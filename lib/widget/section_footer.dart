@@ -9,6 +9,7 @@ class SectionFooter extends StatelessWidget {
       width: double.infinity,
       margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1),
       child: Card(
+        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
         margin: EdgeInsets.zero,
         child: Column(
           children: [
